@@ -34,6 +34,6 @@ const carSchema = new Schema(
     },{timestamps:true}
 )
 
-const car = model("car",carSchema);
+const Car = model("car",carSchema);
 
-module.exports = car;
+module.exports = Car;
