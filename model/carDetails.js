@@ -36,4 +36,4 @@ const carSchema = new Schema(
 
 const Car = model("car",carSchema);
 
-module.exports = Car;
+module.exports = {Car};
