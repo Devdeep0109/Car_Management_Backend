@@ -31,7 +31,7 @@ const carDetailsController = async(req,res) =>{
         res.status(200).json(newCarDetails); 
     }
     catch(err){
-        console.log(err)
+      
         res.status(500).json(err);
     }
 }
