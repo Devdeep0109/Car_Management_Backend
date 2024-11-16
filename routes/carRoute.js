@@ -14,7 +14,7 @@ const { cardelete } = require("../controller/carDetailsController");
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
       // Define the directory where files will be saved
-      const dir = './uploads/';
+      const dir = './public/uploads';
 
       // Check if the directory exists, if not, create it
       if (!fs.existsSync(dir)){
