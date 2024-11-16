@@ -1,4 +1,4 @@
-const Car = require("../model/CarDetails");
+const Car = require("../model/CarDetails.js");
 
 
 
