@@ -46,22 +46,34 @@ const carDetailsController = async(req,res) =>{
     // if (!req.body.data) {
     //     return res.status(400).json({ success: false, error: "Data is missing" });
     // }
+   
 
-    const data = JSON.parse(JSON.stringify(req.body.data));
+    const   { 
+        title,
+        price,
+        car_type,
+        company,
+        address,
+        additionalInfo,
+        id,
+        fileURL,} = req.body;
+    
+        console.log(title);
+        
     // const data = req.body.data;
     
     try{
         
 
         const newCarDetails = await Car({
-            title: data.title,
-            coverImage:`uploads/${req.file.filename}`,
-            price: data.price,
-            car_type: data.car_type,
-            company: data.company,
-            address:data.address,
-            additionalInfo:data.additionalInfo,
-            createdBy:data.id,
+            title: title,
+            coverImage:fileURL,
+            price: price,
+            car_type: car_type,
+            company: company,
+            address:address,
+            additionalInfo:additionalInfo,
+            createdBy:id,
         }
     )
         await newCarDetails.save()
@@ -102,8 +114,15 @@ const fullCarDetail= async(req,res)=>{
 }
 const caredit= async(req,res) =>{
 
-    const data = JSON.parse(JSON.stringify(req.body.data));
-    console.log("Log from car edit ",data);
+    const {  title,
+        price,
+        car_type,
+        company,
+        address,
+        additionalInfo,
+        id,
+        fileURL} = req.body;
+
     
     try {
         const carId = req.params.id;
@@ -112,18 +131,16 @@ const caredit= async(req,res) =>{
         console.log("before data");
         
         
-        if(req.file != undefined){
-            console.log("File " ,req.file);
-            console.log("Filename ",req.file.filename);
+        if(fileURL != null){
             
             const newCarDetails = await Car.findByIdAndUpdate(carId, {
-                title: data.title,
-                coverImage:`uploads/${req.file.filename}`,
-                price: data.price,
-                car_type: data.car_type,
-                company: data.company,
-                address:data.address,
-                additionalInfo:data.additionalInfo,
+                title: title,
+                coverImage:fileURL,
+                price: price,
+                car_type: car_type,
+                company: company,
+                address:address,
+                additionalInfo:additionalInfo,
                
             }
         )
@@ -135,12 +152,12 @@ const caredit= async(req,res) =>{
         else{
             console.log("No File ");
             const newCarDetails = await Car.findByIdAndUpdate(carId, {
-                title: data.title,
-                price: data.price,
-                car_type: data.car_type,
-                company: data.company,
-                address:data.address,
-                additionalInfo:data.additionalInfo,
+                title: title,
+                price: price,
+                car_type: car_type,
+                company: company,
+                address:address,
+                additionalInfo:additionalInfo,
                
             }
         )

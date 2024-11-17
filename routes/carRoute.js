@@ -32,13 +32,11 @@ const storage = multer.diskStorage({
 
 
 //for getting details of car
-router.post("/cardetails",checkForAuthenticationCookie() ,upload.single("coverimage"), carDetailsController);
+router.post("/cardetails",checkForAuthenticationCookie() , carDetailsController);
 
 //for updating details of car
-router.post("/editcar/:id",checkForAuthenticationCookie(),upload.single("coverimage"), caredit);  
+router.post("/editcar/:id",checkForAuthenticationCookie(),caredit);  
 
-//for updating details of car
-router.post("/editcar-no-image/:id",checkForAuthenticationCookie(),upload.none(), caredit);  
 
 //for deleeting all car details of a particular id
 router.post("/deletecar/:id",checkForAuthenticationCookie(),cardelete);

@@ -5,11 +5,9 @@ const app = express();
 const PORT=process.env.PORT;
 const userRoute = require("./routes/userRoute");
 const carRoute = require("./routes/carRoute");
-const commentRoute = require("./routes/commentRoute");
 const cors = require("cors");
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser');
-const { Comments } = require("./model/comments");
 
 
 //connection establishment to mongoDB.....
@@ -43,7 +41,6 @@ app.get("/", (req,res) => {
 //routes....
 app.use("/api" ,userRoute)
 app.use("/car",carRoute)
-app.use("/comment",commentRoute)
 
 
 app.listen(PORT ,(req,res) =>{
