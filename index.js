@@ -42,7 +42,7 @@ app.get("/", (req,res) => {
 
 //routes....
 app.use("/api" ,userRoute)
-// app.use("/car",carRoute)
+app.use("/car",carRoute)
 app.use("/comment",commentRoute)
 
 
