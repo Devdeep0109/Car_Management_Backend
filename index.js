@@ -20,8 +20,6 @@ mongoose.connect(process.env.MONGO_URL)
 
 .catch(err=>console.log(err))
 
-
-
 //configurations.........
 app.use(cookieParser());
 app.use(cors({ origin:[ 'http://localhost:5173', 'https://cars-display.vercel.app'], credentials: true }));
